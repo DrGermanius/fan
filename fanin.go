@@ -1,7 +1,6 @@
 package fan
 
 import (
-	"fmt"
 	"unsafe"
 )
 
@@ -23,7 +22,6 @@ func In[T any](ch ...*chan T) chan T {
 		s := unsafe.Slice((*T)(p.buf), p.qcount)
 		buf = append(buf, s...)
 	}
-	fmt.Println(buf)
 	fan := make(chan T, qcount)
 	var p = (*hchan)(unsafe.Pointer((*(*uintptr)(unsafe.Pointer(&fan)))))
 	p.qcount = qcount
