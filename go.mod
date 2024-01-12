@@ -1,3 +1,3 @@
-module fan
+module github.com/DrGermanius/fan
 
 go 1.21.3
